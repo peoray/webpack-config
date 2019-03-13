@@ -20,7 +20,17 @@ module.exports = merge(webpackConfig, {
     new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
     new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
-      template: "./src/template.html",
+      filename: "index.html",
+      template: "./src/template/index.html",
+      minify: {
+        removeComments: true,
+        removeAtributeQuotes: true,
+        collapseWhitespace: true
+      }
+    }),
+    new HTMLWebpackPlugin({
+      filename: 'about.html',
+      template: "./src/template/about.html",
       minify: {
         removeComments: true,
         removeAtributeQuotes: true,
